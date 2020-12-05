@@ -6,7 +6,7 @@ def file_reader(file):
         yield row
 
 
-def binary_partitioning(binary, index, lower, upper):
+def binary_partitioning(binary, lower, upper):
     difference = (upper - lower) / 2
     if difference < 1:
         if binary[0] in 'FL':
