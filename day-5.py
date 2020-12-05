@@ -19,7 +19,7 @@ def binary_partitioning(binary, index, lower, upper):
         return binary_partitioning(binary[1:], ceil(lower + difference), upper)
 
 
-ids = [8 * binary_partitioning(seat, 0, 127) + binary_partitioning(seat, 0, 7) for seat in file_reader("plane.txt")]
+ids = [8 * binary_partitioning(seat, 0, 127) + binary_partitioning(seat[7:], 0, 7) for seat in file_reader("plane.txt")]
 
 # First solution
 print(max(ids))
