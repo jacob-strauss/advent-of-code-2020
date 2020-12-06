@@ -11,7 +11,6 @@ for group in [x.split('\n') for x in open("declaration.txt", 'r').read().split('
     for y in group:
         for z in y:
             shared[z] += 1
-    for value in shared.values():
-        if value == len(group):
-            res += 1
+            if shared[z] == len(group):
+                res += 1
 print(res)
