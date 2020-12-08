@@ -14,13 +14,11 @@ def run_code(code):
             return True, acc
         visited.append(i)
         op, arg = code[i].split()
-        if op == 'acc':
+        if op == 'jmp':
+            i += int(arg) - 1
+        elif op == 'acc':
             acc += int(arg)
-            i += 1
-        elif op == 'jmp':
-            i += int(arg)
-        else:
-            i += 1
+        i += 1
 
     return False, acc
 
