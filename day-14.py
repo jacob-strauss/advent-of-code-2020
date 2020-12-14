@@ -65,7 +65,7 @@ def memory_address_decoder(mask: str, memory: str):
 
 def address_modifier(bucket: list, value: str):
     """
-    Takes all values in a list, changes them accordingly, adds them to a new list, then the new list.
+    Takes all values in a list, changes them accordingly, adds them to a new list, then returns the new list.
 
     :param bucket: A list of memory addresses expressed as 36-bit binary strings.
     :param value: The value to be add to each memory address.
@@ -88,8 +88,8 @@ def chip_decoder_v2():
             mask = value
         else:
             address = re.search(r'\d+', instruction).group()
-            binary_memory = integer_converter(int(address))
-            memory_set = memory_address_decoder(mask, binary_memory)
+            binary_address = integer_converter(int(address))
+            memory_set = memory_address_decoder(mask, binary_address)
             for location in memory_set:
                 memory.update({location: int(value)})
     return sum(memory.values())
