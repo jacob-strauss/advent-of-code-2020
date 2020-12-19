@@ -35,5 +35,5 @@ def evaluate_brackets(expression: list):
 
 res = 0
 for task in load_homework():
-    res += evaluate_expression(list(task.strip().replace(' ', '')))[0]
+    res += evaluate_expression(task.strip().split(' '))[0]
 print(res)
